@@ -3,217 +3,208 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Altyn Zhol — Международная логистическая компания</title>
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Roboto:wght@300;400&display=swap" rel="stylesheet">
+    <title>Altyn Zhol | Современная Логистика</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
     <style>
         :root {
-            --primary-green: #1B4332; /* Глубокий зеленый */
-            --accent-gold: #D4AF37;   /* Золотой */
-            --light-bg: #F4F7F6;
-            --text-dark: #2D2D2D;
-            --white: #ffffff;
+            --bg: #F9F9F7;
+            --deep-green: #0A2E24;
+            --gold: #C5A059;
+            --text-main: #1A1A1A;
+            --text-muted: #666;
+            --border: #E0E0E0;
         }
 
         * { margin: 0; padding: 0; box-sizing: border-box; }
 
         body {
-            font-family: 'Roboto', sans-serif;
-            line-height: 1.6;
-            color: var(--text-dark);
-            background-color: var(--white);
+            font-family: 'Inter', sans-serif;
+            background-color: var(--bg);
+            color: var(--text-main);
+            line-height: 1.5;
+            -webkit-font-smoothing: antialiased;
         }
 
-        h1, h2, h3 { font-family: 'Montserrat', sans-serif; text-transform: uppercase; }
-
-        /* Navigation */
-        header {
-            background: var(--primary-green);
-            padding: 1rem 5%;
+        /* Навигация */
+        nav {
+            padding: 30px 5%;
             display: flex;
             justify-content: space-between;
             align-items: center;
-            position: fixed;
+            position: absolute;
             width: 100%;
-            top: 0;
-            z-index: 1000;
-            border-bottom: 2px solid var(--accent-gold);
+            z-index: 10;
         }
 
-        .logo { color: var(--accent-gold); font-size: 1.5rem; font-weight: bold; letter-spacing: 2px; }
+        .logo {
+            font-weight: 600;
+            font-size: 1.2rem;
+            letter-spacing: -0.5px;
+            color: var(--deep-green);
+        }
 
-        nav a {
-            color: var(--white);
+        .nav-links a {
             text-decoration: none;
-            margin-left: 20px;
-            font-weight: 400;
+            color: var(--text-main);
+            margin-left: 40px;
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
             transition: 0.3s;
         }
 
-        nav a:hover { color: var(--accent-gold); }
+        .nav-links a:hover { color: var(--gold); }
 
-        /* Hero Section */
+        /* Главный экран */
         .hero {
             height: 100vh;
-            background: linear-gradient(rgba(27, 67, 50, 0.85), rgba(27, 67, 50, 0.85)), 
-                        url('https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?auto=format&fit=crop&q=80&w=2000'); /* Заглушка фото склада/фуры */
-            background-size: cover;
-            background-position: center;
             display: flex;
-            flex-direction: column;
-            justify-content: center;
             align-items: center;
-            text-align: center;
-            color: var(--white);
-            padding: 0 20px;
+            padding: 0 5%;
         }
 
-        .hero h1 { font-size: 3.5rem; margin-bottom: 1rem; letter-spacing: 3px; }
-        .hero p { font-size: 1.2rem; max-width: 800px; margin-bottom: 2rem; }
+        .hero-content { max-width: 700px; }
 
-        .btn {
-            background: var(--accent-gold);
-            color: var(--white);
-            padding: 15px 40px;
+        .hero h1 {
+            font-size: clamp(2.5rem, 5vw, 4.5rem);
+            line-height: 1.1;
+            font-weight: 600;
+            color: var(--deep-green);
+            margin-bottom: 2rem;
+        }
+
+        .hero p {
+            font-size: 1.1rem;
+            color: var(--text-muted);
+            margin-bottom: 2.5rem;
+            max-width: 500px;
+        }
+
+        .cta-group { display: flex; gap: 20px; align-items: center; }
+
+        .btn-main {
+            background: var(--deep-green);
+            color: white;
+            padding: 18px 35px;
             text-decoration: none;
-            border-radius: 30px;
-            font-weight: bold;
-            transition: 0.4s;
-            border: none;
-            cursor: pointer;
-        }
-
-        .btn:hover { background: #b8962e; transform: translateY(-3px); box-shadow: 0 10px 20px rgba(0,0,0,0.2); }
-
-        /* Services */
-        .services { padding: 80px 10%; background: var(--light-bg); }
-        .section-title { text-align: center; margin-bottom: 50px; color: var(--primary-green); }
-        .section-title::after { content: ''; display: block; width: 60px; height: 3px; background: var(--accent-gold); margin: 10px auto; }
-
-        .services-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 30px;
-        }
-
-        .service-card {
-            background: var(--white);
-            padding: 30px;
-            border-radius: 10px;
-            text-align: center;
-            transition: 0.3s;
-            border-bottom: 4px solid transparent;
-        }
-
-        .service-card:hover { border-bottom: 4px solid var(--accent-gold); transform: translateY(-5px); }
-        .service-card h3 { margin-bottom: 15px; color: var(--primary-green); }
-
-        /* Contact Form */
-        .contact { padding: 80px 10%; }
-        .contact-container {
-            display: flex;
-            gap: 50px;
-            flex-wrap: wrap;
-        }
-
-        .contact-info { flex: 1; min-width: 300px; }
-        .contact-form { flex: 1; min-width: 300px; background: var(--primary-green); padding: 40px; border-radius: 15px; color: var(--white); }
-
-        .form-group { margin-bottom: 20px; }
-        .form-group label { display: block; margin-bottom: 5px; }
-        .form-group input, .form-group textarea {
-            width: 100%;
-            padding: 10px;
-            border-radius: 5px;
-            border: none;
-        }
-
-        footer {
-            background: #112a20;
-            color: var(--white);
-            text-align: center;
-            padding: 20px;
             font-size: 0.9rem;
+            font-weight: 600;
+            transition: 0.3s;
         }
+
+        .btn-main:hover { background: var(--gold); }
+
+        /* Сетка услуг */
+        .section { padding: 120px 5%; border-top: 1px solid var(--border); }
+
+        .label {
+            color: var(--gold);
+            text-transform: uppercase;
+            font-size: 0.8rem;
+            font-weight: 600;
+            letter-spacing: 2px;
+            margin-bottom: 20px;
+            display: block;
+        }
+
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 60px;
+            margin-top: 40px;
+        }
+
+        .grid-item h3 {
+            font-size: 1.5rem;
+            margin-bottom: 15px;
+            color: var(--deep-green);
+        }
+
+        .grid-item p {
+            color: var(--text-muted);
+            font-weight: 300;
+        }
+
+        /* Контактная зона */
+        .footer-cta {
+            background: var(--deep-green);
+            color: white;
+            padding: 100px 5%;
+            text-align: center;
+        }
+
+        .footer-cta h2 { font-size: 2.5rem; margin-bottom: 30px; }
+
+        input {
+            background: transparent;
+            border: none;
+            border-bottom: 1px solid rgba(255,255,255,0.3);
+            padding: 15px;
+            color: white;
+            width: 300px;
+            margin: 10px;
+            outline: none;
+        }
+
+        input:focus { border-bottom: 1px solid var(--gold); }
 
         @media (max-width: 768px) {
-            .hero h1 { font-size: 2rem; }
-            nav { display: none; }
+            .nav-links { display: none; }
+            .hero h1 { font-size: 3rem; }
         }
     </style>
 </head>
 <body>
 
-    <header>
-        <div class="logo">ALTYN ZHOL</div>
-        <nav>
-            <a href="#about">О нас</a>
-            <a href="#services">Услуги</a>
-            <a href="#contact">Контакты</a>
-        </nav>
-    </header>
+    <nav>
+        <div class="logo">ALTYN ZHOL.</div>
+        <div class="nav-links">
+            <a href="#">Решения</a>
+            <a href="#">Сеть</a>
+            <a href="#">О нас</a>
+        </div>
+    </nav>
 
     <section class="hero">
-        <h1>ЗОЛОТОЙ ПУТЬ ВАШЕГО БИЗНЕСА</h1>
-        <p>Надежные грузоперевозки любой сложности. Казахстан, СНГ, Весь мир.</p>
-        <a href="#contact" class="btn">РАССЧИТАТЬ СТОИМОСТЬ</a>
-    </section>
-
-    <section id="services" class="services">
-        <h2 class="section-title">Наши услуги</h2>
-        <div class="services-grid">
-            <div class="service-card">
-                <h3>Автоперевозки</h3>
-                <p>Собственный автопарк. Доставка от двери до двери в кратчайшие сроки.</p>
-            </div>
-            <div class="service-card">
-                <h3>Ж/Д Логистика</h3>
-                <p>Контейнерные перевозки и вагонные поставки по всем направлениям СНГ и Китая.</p>
-            </div>
-            <div class="service-card">
-                <h3>Авиадоставка</h3>
-                <p>Срочные грузы. Таможенное оформление в аэропортах за 24 часа.</p>
-            </div>
-            <div class="service-card">
-                <h3>Склад и ТЛЦ</h3>
-                <p>Хранение, консолидация и ответственное управление вашими запасами.</p>
+        <div class="hero-content">
+            <span class="label">Smart Logistics</span>
+            <h1>Переосмысляя путь товаров.</h1>
+            <p>Цифровое управление цепями поставок с точностью до миллиметра. Altyn Zhol — ваша инфраструктура роста в Центральной Азии.</p>
+            <div class="cta-group">
+                <a href="#" class="btn-main">Начать работу</a>
             </div>
         </div>
     </section>
 
-    <section id="contact" class="contact">
-        <h2 class="section-title">Свяжитесь с нами</h2>
-        <div class="contact-container">
-            <div class="contact-info">
-                <h3>Почему выбирают Altyn Zhol?</h3>
-                <p style="margin-top: 20px;">Мы понимаем ценность времени и сохранности груза. Наш "Зеленый коридор" — это гарантия отсутствия задержек на границах.</p>
-                <ul style="margin-top: 20px; list-style: none;">
-                    <li>📍 <strong>Адрес:</strong> Казахстан, г. Астана, пр. Достык 10</li>
-                    <li>📞 <strong>Телефон:</strong> +7 (777) 000-00-00</li>
-                    <li>📧 <strong>Email:</strong> info@altynzhol.kz</li>
-                </ul>
+    <section class="section">
+        <span class="label">Сервисы</span>
+        <div class="grid">
+            <div class="grid-item">
+                <h3>01. Air Freight</h3>
+                <p>Прямые авиасообщения с крупнейшими хабами Европы и Азии. Таможенная очистка включена.</p>
             </div>
-            <div class="contact-form">
-                <form>
-                    <div class="form-group">
-                        <label>Ваше имя</label>
-                        <input type="text" placeholder="Введите имя">
-                    </div>
-                    <div class="form-group">
-                        <label>Телефон</label>
-                        <input type="tel" placeholder="+7 (___) ___-__-__">
-                    </div>
-                    <div class="form-group">
-                        <label>Маршрут (Откуда - Куда)</label>
-                        <input type="text" placeholder="Например: Алматы - Берлин">
-                    </div>
-                    <button type="submit" class="btn" style="width: 100%;">ОТПРАВИТЬ ЗАЯВКУ</button>
-                </form>
+            <div class="grid-item">
+                <h3>02. Road Network</h3>
+                <p>Регулярные рейсы LTL и FTL. Полный контроль движения через GPS-мониторинг в реальном времени.</p>
+            </div>
+            <div class="grid-item">
+                <h3>03. Rail Links</h3>
+                <p>Оптимизация расходов на длинных дистанциях. Шелковый путь в современном исполнении.</p>
             </div>
         </div>
     </section>
 
-    <footer>
-        &copy; 2026 Altyn Zhol Logistics. Все права защищены.
+    <section class="footer-cta">
+        <h2>Готовы отправить груз?</h2>
+        <form>
+            <input type="text" placeholder="Ваше имя">
+            <input type="email" placeholder="Email">
+            <button type="submit" class="btn-main" style="background: var(--gold);">Получить расчет</button>
+        </form>
+    </section>
+
+    <footer style="padding: 40px 5%; font-size: 0.8rem; color: #999;">
+        <p>&copy; 2026 Altyn Zhol Logistics. Designed for efficiency.</p>
     </footer>
 
 </body>
